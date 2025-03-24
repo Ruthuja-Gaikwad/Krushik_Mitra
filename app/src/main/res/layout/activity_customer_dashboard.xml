@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="@color/light_green">
+
+    <TextView
+        android:id="@+id/tvWelcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, Customer!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btnViewProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Products"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Orders"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile Settings"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

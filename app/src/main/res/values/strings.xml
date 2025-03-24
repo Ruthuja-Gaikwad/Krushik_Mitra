@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Krushik Mitr</string>
+    <string name="farmer_login">Farmer Login</string>
+    <string name="login">Login</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="consumer_login">Consumer Login</string>
+    <string name="dashboard_title">Farmer Dashboard</string>
+    <string name="crop_info">Crop Information</string>
+    <string name="weather">Weather Info</string>
+    <string name="crop_info_desc">Get the latest crop information</string>
+    <string name="weather_desc">Check the weather forecast</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="enter_mobile">Enter your mobile number</string>
+    <string name="enter_address">Enter your address</string>
+    <string name="enter_location">Enter your location</string>
+    <string name="enter_land_area">Enter land area (in acres)</string>
+    <string name="enter_soil_type">Enter soil type</string>
+    <string name="enter_npk_values">Enter NPK values</string>
+    <string name="enter_previous_crop">Enter previous crop</string>
+    <string name="btn_crop_info">Crop Info</string>
+    <string name="btn_finance_info">Finance Info</string>
+    <string name="btn_market_info">Market Info</string>
+    <string name="btn_weather_info">Weather Info</string>
+    <string name="select_language">Select Language</string>
+    <string name="btn_continue_text">Continue</string>
+    <string name="welcome_text">Welcome to Krushik Mitr</string>
+    <string name="welcome_message">Welcome, %1$s!</string>
+    <string name="suggested_crop">Suggested Crop</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="weather_info">Weather Information</string>
+    <string name="humidity">Humidity:</string>
+    <string name="wind_speed">Wind Speed:</string>
+    <string name="pressure">Pressure:</string>
+    <string name="fetching_weather">Fetching weather...</string>
+    <string name="enter_message">Please enter a message</string>
+    <string name="error_chatbot_response">Failed to get a response from chatbot.</string>
+    <string name="api_call_failed">API call failed</string>
+    <!-- Corrected Language Array -->
+    <string-array name="languages">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Marathi</item>
+        <item>Telugu</item>
+    </string-array>
+    <string-array name="location_options">
+        <item>Village 1</item>
+        <item>Village 2</item>
+        <item>City 1</item>
+        <item>City 2</item>
+    </string-array>
+
+    <string-array name="soil_types">
+        <item>Loamy</item>
+        <item>Sandy</item>
+        <item>Clay</item>
+        <item>Silty</item>
+    </string-array>
+
+    <string-array name="previous_crops">
+        <item>Wheat</item>
+        <item>Rice</item>
+        <item>Corn</item>
+        <item>Cotton</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ruthuja.krushikmitr">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KrushikMitr">
+
+        <!-- Existing Activities -->
+        <activity android:name=".SplashActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:exported="true"/>
+        <activity android:name=".FarmerLoginActivity" android:exported="true"/>
+        <activity android:name=".CustomerLoginActivity" android:exported="true"/>
+        <activity android:name=".FarmerDashboardActivity" android:exported="true"/>
+        <activity android:name=".CustomerDashboardActivity" android:exported="true"/>
+        <activity android:name=".CropInfoActivity" android:exported="true"/>
+        <activity android:name=".WeatherInfoActivity" android:exported="true"/>
+        <activity android:name=".FinanceInfoActivity" android:exported="true"/>
+        <activity android:name=".CustomerSignupActivity" android:exported="true"/>
+        <activity android:name=".ForgotPasswordActivity" android:exported="true"/>
+        <activity android:name=".ViewProductsActivity" android:exported="true"/>
+        <activity android:name=".ProfileActivity" android:exported="true"/>
+        <activity android:name=".OrdersActivity" android:exported="true"/>
+        <activity android:name=".SubsidyInfoActivity" android:exported="true"/>
+        <activity android:name=".MarketPriceActivity" android:exported="true"/>
+        <activity android:name=".LoanEligibilityActivity" android:exported="true"/>
+        <activity android:name=".LoanDetailsActivity" android:exported="true"/>
+        <activity android:name=".GovtSchemesActivity" android:exported="true"/>
+        <activity android:name=".LanguageSelectionActivity"/>
+        <!-- Chatbot Components -->
+        <activity android:name=".ChatbotActivity" android:exported="true"/>
+
+    </application>
+</manifest>

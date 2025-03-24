@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#F5F5F5</color> <!-- Light Gray Background -->
+    <color name="farmer_section">#A5D6A7</color> <!-- Light Green for Farmer Section -->
+    <color name="consumer_section">#FFCC80</color> <!-- Light Orange for Consumer Section -->
+    <color name="white">#FFFFFF</color> <!-- White Text Color -->
+    <color name="semi_transparent">#80000000</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="dark_black">#121212</color> <!-- Darker shade of black -->
+    <color name="light_gray">#D3D3D3</color>
+    <color name="login_background">#4CAF50</color> <!-- Green Background -->
+    <color name="button_color">#388E3C</color> <!-- Dark Green Button -->
+    <color name="dashboard_background">#FFEB3B</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="primaryColor">#4CAF50</color>  <!-- Green -->
+    <color name="accentColor">#8D6E63</color>   <!-- Brown -->
+    <color name="backgroundColor">#F5F5DC</color> <!-- Beige -->
+    <color name="textColor">#212121</color>  <!-- Dark Grey -->
+    <color name="buttonColor">#FF9800</color> <!-- Orange -->
+    <color name="dark_green">#5A6F36</color>
+    <color name="light_yellow">#F8ED8C</color>
+    <color name="button_red">#FF6F61</color>
+    <color name="section_background">#33A36D</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="dashboard_green">#4CAF50</color>
+    <color name="light_green">#A8E6CF</color> <!-- Example Hex Code -->
+
+</resources>

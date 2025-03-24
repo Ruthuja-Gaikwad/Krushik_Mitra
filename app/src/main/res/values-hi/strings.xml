@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">कृषिक मित्र</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="btn_continue_text">जारी रखें</string>
+    <string name="welcome_text">कृषिक मित्र में आपका स्वागत है</string>
+    <string name="login">लॉगिन करें</string>
+</resources>

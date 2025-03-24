@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg">
+
+    <!-- Overlay Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <!-- Welcome Text -->
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Krushik Mitra"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_green"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Farmer & Consumer Selection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="2"
+            android:padding="16dp">
+
+            <!-- Farmer Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/card_bg"
+                android:padding="20dp"
+                android:elevation="6dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/farmer_icon"
+                    android:contentDescription="Farmer Icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Farmer"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:layout_marginTop="10dp"/>
+
+                <Button
+                    android:id="@+id/btn_login_farmer"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <!-- Consumer Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/card_bg"
+                android:padding="20dp"
+                android:elevation="6dp"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/consumer_icon"
+                    android:contentDescription="Consumer Icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Consumer"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_green"
+                    android:layout_marginTop="10dp"/>
+
+                <Button
+                    android:id="@+id/btn_consumer_login"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

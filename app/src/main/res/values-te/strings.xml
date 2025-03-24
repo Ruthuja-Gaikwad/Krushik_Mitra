@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">కృషిక్ మిత్ర</string>
+    <string name="select_language">భాషను ఎంచుకోండి</string>
+    <string name="btn_continue_text">కొనసాగించండి</string>
+    <string name="welcome_text">కృషిక్ మిత్రకు స్వాగతం</string>
+    <string name="login">లాగిన్ చేయండి</string>
+</resources>

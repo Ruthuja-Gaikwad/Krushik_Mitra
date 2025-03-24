@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/background_image">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <!-- Card Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="24dp"
+            android:elevation="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/farmer_login"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Name -->
+            <EditText
+                android:id="@+id/et_farmer_name"
+                style="@style/CommonInput"
+                android:hint="@string/enter_name"
+                android:inputType="textPersonName"/>
+
+            <!-- Mobile Number -->
+            <EditText
+                android:id="@+id/et_farmer_mobile"
+                style="@style/CommonInput"
+                android:hint="@string/enter_mobile"
+                android:inputType="phone"/>
+
+            <!-- Address -->
+            <EditText
+                android:id="@+id/et_farmer_address"
+                style="@style/CommonInput"
+                android:hint="@string/enter_address"
+                android:inputType="textPostalAddress"/>
+
+            <!-- Location (Dropdown) -->
+            <Spinner
+                android:id="@+id/spinner_location"
+                style="@style/CommonSpinner"
+                android:entries="@array/location_options"/>
+
+            <!-- Area of Land -->
+            <EditText
+                android:id="@+id/et_farmer_area"
+                style="@style/CommonInput"
+                android:hint="@string/enter_land_area"
+                android:inputType="numberDecimal"/>
+
+            <!-- Soil Type (Dropdown) -->
+            <Spinner
+                android:id="@+id/spinner_soil_type"
+                style="@style/CommonSpinner"
+                android:entries="@array/soil_types"/>
+
+            <!-- NPK Values -->
+            <EditText
+                android:id="@+id/et_farmer_npk"
+                style="@style/CommonInput"
+                android:hint="@string/enter_npk_values"
+                android:inputType="text"/>
+
+            <!-- Previous Crop (Dropdown) -->
+            <Spinner
+                android:id="@+id/spinner_prev_crop"
+                style="@style/CommonSpinner"
+                android:entries="@array/previous_crops"/>
+
+            <!-- Username -->
+            <EditText
+                android:id="@+id/et_farmer_username"
+                style="@style/CommonInput"
+                android:hint="@string/enter_username"
+                android:inputType="textEmailAddress"
+                android:autofillHints="username"/>
+
+            <!-- Password -->
+            <EditText
+                android:id="@+id/et_farmer_password"
+                style="@style/CommonInput"
+                android:hint="@string/enter_password"
+                android:inputType="textPassword"/>
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btn_farmer_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:background="@drawable/rounded_button"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

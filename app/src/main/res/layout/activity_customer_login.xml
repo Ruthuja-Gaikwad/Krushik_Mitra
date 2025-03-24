@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="@color/login_background"
+    android:orientation="vertical">
+
+    <!-- App Logo -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/app_logo"
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Login Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/consumer_login"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Username Input -->
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/enter_username"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/enter_password"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Forgot Password -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="end"/>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Sign Up Option -->
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Sign Up"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
