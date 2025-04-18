@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="12dp">  <!-- This now works -->
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="16dp"
+android:orientation="vertical">
+
+<TextView
+    android:id="@+id/tv_provider_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Provider Name"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:textColor="@color/black"/>
+
+<TextView
+    android:id="@+id/tv_interest_rate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Interest Rate: 8%"
+    android:textSize="14sp"
+    android:textColor="@color/black"/>
+
+<TextView
+    android:id="@+id/tv_loan_amount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Loan Amount: ₹50,000 - ₹5,00,000"
+    android:textSize="14sp"
+    android:textColor="@color/black"/>
+
+<TextView
+    android:id="@+id/tv_contact_info"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Contact: +91-9876543210"
+    android:textSize="14sp"
+    android:textColor="@color/black"/>
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>

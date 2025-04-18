@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "655790961601",
+    "project_id": "krushik-mitra-441d1",
+    "storage_bucket": "krushik-mitra-441d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655790961601:android:c78ee6759256fdfc10f540",
+        "android_client_info": {
+          "package_name": "com.ruthuja.krushikmitr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn0FCRyopkVLkwrd-1bW-w_pvc2kA_JXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

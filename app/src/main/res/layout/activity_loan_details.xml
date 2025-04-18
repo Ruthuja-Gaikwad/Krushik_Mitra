@@ -13,10 +13,12 @@
         android:id="@+id/tv_loan_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Loan Eligibility Details"
+        android:text="Loan Eligibility &amp; Providers"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/white"
+        android:gravity="center"
+        android:contentDescription="Title: Loan Eligibility and Providers"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,12 +29,27 @@
         android:id="@+id/tv_loan_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Check eligibility for agricultural loans based on land area, crop type, and other factors."
+        android:text="Check eligibility for agricultural loans and explore loan providers who can assist you."
         android:textSize="16sp"
         android:textColor="@color/black"
         android:padding="16dp"
+        android:contentDescription="Information about loan eligibility and providers"
+        tools:text="Check eligibility for agricultural loans and explore loan providers."
         app:layout_constraintTop_toBottomOf="@id/tv_loan_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- RecyclerView for Loan Providers -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_loan_providers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        android:contentDescription="List of available loan providers"
+        tools:listitem="@layout/item_loan_provider"
+        app:layout_constraintTop_toBottomOf="@id/tv_loan_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

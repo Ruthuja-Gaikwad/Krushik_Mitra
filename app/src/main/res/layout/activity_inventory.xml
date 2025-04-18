@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8E9"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/inventoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📦 Inventory"
+        android:textSize="28sp"
+        android:textColor="#2E7D32"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Inventory Page Title" />
+
+    <!-- Add Item Button -->
+    <Button
+        android:id="@+id/btnAddItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="➕ Add Item"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#388E3C"
+        android:layout_marginBottom="20dp"
+        android:elevation="6dp"
+        android:padding="12dp"
+        android:contentDescription="Button to add a new inventory item" />
+
+    <!-- Inventory RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/inventoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:layout_marginTop="8dp"
+        android:contentDescription="List of inventory items" />
+
+</LinearLayout>

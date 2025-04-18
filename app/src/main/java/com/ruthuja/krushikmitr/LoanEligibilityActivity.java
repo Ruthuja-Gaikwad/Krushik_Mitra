@@ -45,10 +45,44 @@ public class LoanEligibilityActivity extends AppCompatActivity {
         int creditScore = Integer.parseInt(creditScoreStr);
 
         // Loan Eligibility Logic
-        if (annualIncome > 50000 && landSize > 2 && creditScore > 650) {
-            tvResult.setText("✅ Eligible for Loan!\nVisit the nearest bank for application.");
+
+        // Determine eligible banks based on credit score
+        StringBuilder eligibleBanks = new StringBuilder();
+
+        // Apply logic for credit score
+        if (creditScore >= 750) {
+            eligibleBanks.append("HDFC, Axis Bank, SBI, ICICI, PNB, Kotak Mahindra, Bank of Baroda, IDFC First, YES Bank, Union Bank");
+        } else if (creditScore >= 700) {
+            eligibleBanks.append("HDFC, Axis Bank, SBI, ICICI, PNB, Kotak Mahindra");
+        } else if (creditScore >= 650) {
+            eligibleBanks.append("Axis Bank, SBI, ICICI, PNB");
+        } else if (creditScore >= 600) {
+            eligibleBanks.append("SBI, ICICI, PNB");
+        } else if (creditScore >= 500) {
+            eligibleBanks.append("SBI, PNB");
+        }
+
+        // Apply logic for annual income
+        StringBuilder incomeBanks = new StringBuilder();
+
+        if (annualIncome >= 80000) {
+            incomeBanks.append("HDFC, Axis Bank, SBI, ICICI, PNB, Kotak Mahindra, Bank of Baroda, IDFC First, YES Bank, Union Bank");
+        } else if (annualIncome >= 70000) {
+            incomeBanks.append("HDFC, Axis Bank, SBI, ICICI, PNB, Kotak Mahindra");
+        } else if (annualIncome >= 60000) {
+            incomeBanks.append("Axis Bank, SBI, ICICI, PNB");
+        } else if (annualIncome >= 50000) {
+            incomeBanks.append("SBI, ICICI, PNB");
+        } else if (annualIncome >= 40000) {
+            incomeBanks.append("SBI, PNB");
+        }
+
+        // Combine both eligibility checks
+        if (annualIncome > 50000 && landSize > 2 && eligibleBanks.length() > 0 && incomeBanks.length() > 0) {
+            String combinedEligibleBanks = eligibleBanks.toString() + " | " + incomeBanks.toString();
+            tvResult.setText("✅ Eligible for Loan at " + combinedEligibleBanks + "!\nVisit the nearest branch to apply.");
         } else {
-            tvResult.setText("❌ Not Eligible.\nTry increasing income or improving credit score.");
+            tvResult.setText("❌ Not Eligible for Loan.\nTry increasing income or improving credit score.");
         }
     }
 }

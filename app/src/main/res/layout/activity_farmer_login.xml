@@ -1,118 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/background_image">
+    android:background="@drawable/background_image"
+    tools:context=".FarmerLoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:gravity="center">
 
-        <!-- Card Container -->
+        <!-- Card container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/card_background"
+            android:elevation="6dp"
             android:padding="24dp"
-            android:elevation="8dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="8dp"
             android:gravity="center">
 
+            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/farmer_login"
-                android:textSize="24sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="24dp" />
 
-            <!-- Name -->
+            <!-- Input Fields -->
             <EditText
                 android:id="@+id/et_farmer_name"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_name"
-                android:inputType="textPersonName"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Mobile Number -->
             <EditText
                 android:id="@+id/et_farmer_mobile"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_mobile"
-                android:inputType="phone"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Address -->
             <EditText
                 android:id="@+id/et_farmer_address"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_address"
-                android:inputType="textPostalAddress"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Location (Dropdown) -->
             <Spinner
                 android:id="@+id/spinner_location"
                 style="@style/CommonSpinner"
-                android:entries="@array/location_options"/>
+                android:entries="@array/location_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Area of Land -->
             <EditText
                 android:id="@+id/et_farmer_area"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_land_area"
-                android:inputType="numberDecimal"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Soil Type (Dropdown) -->
             <Spinner
                 android:id="@+id/spinner_soil_type"
                 style="@style/CommonSpinner"
-                android:entries="@array/soil_types"/>
+                android:entries="@array/soil_types"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- NPK Values -->
             <EditText
                 android:id="@+id/et_farmer_npk"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_npk_values"
-                android:inputType="text"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Previous Crop (Dropdown) -->
             <Spinner
                 android:id="@+id/spinner_prev_crop"
                 style="@style/CommonSpinner"
-                android:entries="@array/previous_crops"/>
+                android:entries="@array/previous_crops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Username -->
             <EditText
                 android:id="@+id/et_farmer_username"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_username"
                 android:inputType="textEmailAddress"
-                android:autofillHints="username"/>
+                android:autofillHints="username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
 
-            <!-- Password -->
             <EditText
                 android:id="@+id/et_farmer_password"
-                style="@style/CommonInput"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:hint="@string/enter_password"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
 
-            <!-- Login Button -->
+            <!-- Submit Button -->
             <Button
                 android:id="@+id/btn_farmer_submit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/login"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_height="48dp"
+            android:text="@string/login"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/rounded_button"/>
+
+            <!-- Sign Up Text -->
+            <TextView
+                android:id="@+id/tv_farmer_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+            android:text="Don't have an account? Sign up"
+            android:textColor="@color/primaryColor"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
         </LinearLayout>
-
     </LinearLayout>
-
 </ScrollView>

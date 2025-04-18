@@ -1,7 +1,71 @@
 <resources>
-    <string name="app_name">कृषिक मित्र</string>
+    <string name="farmer_login">शेतकरी लॉगिन</string>
+    <string name="login">लॉगिन करा</string>
+    <string name="enter_username">वापरकर्त्याचे नाव प्रविष्ट करा</string>
+    <string name="enter_password">पासवर्ड प्रविष्ट करा</string>
+    <string name="consumer_login">ग्राहक लॉगिन</string>
+    <string name="dashboard_title">शेतकरी डॅशबोर्ड</string>
+    <string name="crop_info">फसल माहिती</string>
+    <string name="weather">मौसम माहिती</string>
+    <string name="crop_info_desc">ताज्या फसलांची माहिती मिळवा</string>
+    <string name="weather_desc">मौसमाची भविष्यवाणी तपासा</string>
+    <string name="enter_name">तुमचे नाव प्रविष्ट करा</string>
+    <string name="enter_mobile">तुमचा मोबाईल नंबर प्रविष्ट करा</string>
+    <string name="enter_address">तुमचा पत्ता प्रविष्ट करा</string>
+    <string name="enter_location">तुमचा स्थान प्रविष्ट करा</string>
+    <string name="enter_land_area">जमिनीचे क्षेत्रफळ प्रविष्ट करा (एकरमध्ये)</string>
+    <string name="enter_soil_type">मातीचा प्रकार प्रविष्ट करा</string>
+    <string name="enter_npk_values">NPK मूल्ये प्रविष्ट करा</string>
+    <string name="enter_previous_crop">मागील पिक प्रविष्ट करा</string>
+    <string name="btn_crop_info">फसल माहिती</string>
+    <string name="btn_finance_info">वित्तीय माहिती</string>
+    <string name="btn_market_info">बाजार माहिती</string>
+    <string name="btn_weather_info">मौसम माहिती</string>
     <string name="select_language">भाषा निवडा</string>
     <string name="btn_continue_text">सुरू ठेवा</string>
-    <string name="welcome_text">कृषिक मित्र मध्ये तुमचे स्वागत आहे</string>
-    <string name="login">लॉगिन करा</string>
+    <string name="welcome_text">कृषिक मित्रमध्ये आपले स्वागत आहे</string>
+    <string name="welcome_message">कृषिक मित्रमध्ये आपले स्वागत आहे, %1$s!</string>
+    <string name="suggested_crop">सुझवलेली फसल</string>
+    <string name="upload_image">प्रतिमा अपलोड करा</string>
+    <string name="weather_info">मौसम माहिती</string>
+    <string name="humidity">आर्द्रता:</string>
+    <string name="wind_speed">वाऱ्याचा वेग:</string>
+    <string name="pressure">दबाव:</string>
+    <string name="fetching_weather">मौसम प्राप्त करत आहे...</string>
+    <string name="enter_message">कृपया संदेश प्रविष्ट करा</string>
+    <string name="error_chatbot_response">चॅटबोटकडून प्रतिसाद प्राप्त करण्यात अयशस्वी</string>
+    <string name="api_call_failed">API कॉल अयशस्वी</string>
+    <string name="pm_kisan">पीएम किसान - ₹6,000 प्रति वर्ष</string>
+    <string name="pm_fby">PMFBY - फसल विमा</string>
+    <string name="kcc">किसान क्रेडिट कार्ड - कमी व्याज दर कर्ज</string>
+    <string name="enam">eNAM - शेतकऱ्यांसाठी ऑनलाइन बाजार</string>
+    <string name="rkvy">RKVY - कृषीवृद्धीसाठी निधी</string>
+    <string name="app_name">कृषिक मित्र</string>
+    <string name="title_farming_videos">कृषी व्हिडिओ</string>
+    <string name="farming_video_list">कृषी व्हिडिओंची यादी</string>
+    <string-array name="languages">
+        <item>इंग्रजी</item>
+        <item>हिंदी</item>
+        <item>मराठी</item>
+        <item>तेलुगू</item>
+    </string-array>
+    <string-array name="location_options">
+        <item>गाव 1</item>
+        <item>गाव 2</item>
+        <item>शहर 1</item>
+        <item>शहर 2</item>
+    </string-array>
+    <string-array name="soil_types">
+        <item>लोमीय</item>
+        <item>रेताळा</item>
+        <item>कागदाळा</item>
+        <item>मलमल</item>
+    </string-array>
+    <string name="cart_items_list">आपल्या कार्टमध्ये आयटम्स</string>
+    <string-array name="previous_crops">
+        <item>गहू</item>
+        <item>तांदूळ</item>
+        <item>भात</item>
+        <item>कापूस</item>
+    </string-array>
 </resources>

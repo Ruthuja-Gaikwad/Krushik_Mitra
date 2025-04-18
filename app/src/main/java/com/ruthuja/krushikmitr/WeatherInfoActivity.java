@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,13 +15,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.*;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class WeatherInfoActivity extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_REQUEST = 100;
-    private static final String API_KEY = "YOUR_API_KEY_HERE"; // Replace with your OpenWeather API Key
+    private static final String API_KEY = "508874bda59fa84b212139c647a31509";
+
 
     private TextView tvTemperature, tvWeatherDescription, tvLocation, tvWindSpeed, tvHumidity, tvPressure;
     private ImageView ivWeatherIcon;
@@ -58,7 +57,6 @@ public class WeatherInfoActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                     LOCATION_PERMISSION_REQUEST);
         } else {
-            // Permission already granted
             requestLocation();
         }
     }
@@ -150,7 +148,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
             case "11d": case "11n": iconResource = R.drawable.ic_thunderstorm; break;
             case "13d": case "13n": iconResource = R.drawable.ic_snow; break;
             case "50d": case "50n": iconResource = R.drawable.ic_foggy; break;
-            default: iconResource = R.drawable.ic_weather; // Default weather icon
+            default: iconResource = R.drawable.ic_weather;
         }
         ivWeatherIcon.setImageResource(iconResource);
     }

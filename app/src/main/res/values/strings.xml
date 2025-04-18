@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Krushik Mitr</string>
     <string name="farmer_login">Farmer Login</string>
     <string name="login">Login</string>
     <string name="enter_username">Enter Username</string>
@@ -37,6 +36,14 @@
     <string name="error_chatbot_response">Failed to get a response from chatbot.</string>
     <string name="api_call_failed">API call failed</string>
     <!-- Corrected Language Array -->
+    <string name="pm_kisan">PM Kisan - ₹6,000 per Year</string>
+    <string name="pm_fby">PMFBY - Crop Insurance</string>
+    <string name="kcc">Kisan Credit Card - Low Interest Loans</string>
+    <string name="enam">eNAM - Online Market for Farmers</string>
+    <string name="rkvy">RKVY - Fund for Agricultural Growth</string>
+    <string name="app_name">KrushikMitr</string>
+    <string name="title_farming_videos">Farming Videos</string>
+    <string name="farming_video_list">List of farming videos</string>
     <string-array name="languages">
         <item>English</item>
         <item>Hindi</item>
@@ -56,7 +63,7 @@
         <item>Clay</item>
         <item>Silty</item>
     </string-array>
-
+    <string name="cart_items_list">Items in your cart</string>
     <string-array name="previous_crops">
         <item>Wheat</item>
         <item>Rice</item>

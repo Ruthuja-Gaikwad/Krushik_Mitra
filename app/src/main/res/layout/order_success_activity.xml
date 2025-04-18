@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F0FFF0">
+
+    <!-- Success Icon -->
+    <TextView
+        android:text="✅"
+        android:textSize="72sp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Success Message -->
+    <TextView
+        android:text="Thank you for your order!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Order ID TextView -->
+    <TextView
+        android:id="@+id/tvOrderId"
+        android:text="Order ID: "
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Total Amount TextView -->
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:text="Total: "
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Back to Home Button -->
+    <Button
+        android:id="@+id/btnBackToHome"
+        android:text="Back to Home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#388E3C"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

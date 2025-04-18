@@ -1,21 +1,64 @@
 <resources>
-<style name="CommonInput">
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:padding">12dp</item>
-    <item name="android:minHeight">48dp</item>
-    <item name="android:background">@drawable/input_background</item>
-    <item name="android:textColor">@color/black</item>
-    <item name="android:textSize">16sp</item>
-</style>
 
-<!-- Style for Common Spinner (Dropdown) -->
-<style name="CommonSpinner">
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:padding">12dp</item>
-    <item name="android:minHeight">48dp</item>
-    <item name="android:background">@drawable/input_background</item>
-    <item name="android:textColor">@color/black</item>
-</style>
+    <!-- Common Input Field -->
+    <style name="CommonInput" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@drawable/input_background</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Common Spinner (Dropdown) -->
+    <style name="CommonSpinner" parent="Widget.AppCompat.Spinner.Underlined">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@drawable/input_background</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Card Style -->
+    <style name="SubsidyCardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">6dp</item>
+        <item name="cardCornerRadius">12dp</item> <!-- Corrected -->
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Inner Card Content -->
+    <style name="CardContentStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- Card Text -->
+    <style name="CardTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="DashboardCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
 </resources>

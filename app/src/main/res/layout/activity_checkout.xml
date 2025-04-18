@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FAFAFA">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvCheckoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:textSize="24sp"
+        android:textColor="#2C3E50"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Checkout screen title" />
+
+    <!-- Items to purchase -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCheckoutItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="List of items to purchase" />
+
+    <!-- Total amount -->
+    <TextView
+        android:id="@+id/tvCheckoutTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: $0.00"
+        android:textSize="18sp"
+        android:textColor="#FF4081"
+        android:gravity="end"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Total amount to pay" />
+
+    <!-- Payment Method Selection -->
+    <TextView
+        android:id="@+id/tvPaymentMethodLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Payment Method:"
+        android:textSize="16sp"
+        android:textColor="#2C3E50"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="Prompt to select payment method" />
+
+    <RadioGroup
+        android:id="@+id/rgPaymentMethods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rbCOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash on Delivery"
+            android:contentDescription="Payment method: Cash on Delivery" />
+
+        <RadioButton
+            android:id="@+id/rbCreditCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Credit Card"
+            android:contentDescription="Payment method: Credit Card" />
+
+        <RadioButton
+            android:id="@+id/rbPayPal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PayPal"
+            android:contentDescription="Payment method: PayPal" />
+    </RadioGroup>
+
+    <!-- Pay Now button -->
+    <Button
+        android:id="@+id/btnPayNow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pay Now"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:background="#FF4081"
+        android:contentDescription="Pay now button to complete the payment" />
+</LinearLayout>

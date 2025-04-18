@@ -1,55 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center"
-    android:background="@color/light_green">
+    android:padding="16dp"
+    android:background="#FAFAFA">
 
+    <!-- Welcome Text -->
     <TextView
-        android:id="@+id/tvWelcomeMessage"
+        android:id="@+id/tvCustomerWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome, Customer!"
+        android:text="Welcome to Krushik Mitr!"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
-        android:gravity="center"/>
+        android:textColor="#2C3E50"
+        android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btnViewProducts"
+    <!-- Message Text -->
+    <TextView
+        android:id="@+id/tvCustomerMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explore fresh products directly from farmers."
+        android:textSize="16sp"
+        android:textColor="#7F8C8D"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Tab Layout for Categories -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/category_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Products"
-        android:background="@drawable/rounded_button"
-        android:textColor="@color/white"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Product categories such as fruits, vegetables and dairy"
+        android:importantForAccessibility="yes"
+        app:tabMode="scrollable"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#FF4081"
+        app:tabSelectedTextColor="#FF4081"
+        app:tabTextColor="#A5A5A5" />
 
-    <Button
-        android:id="@+id/btnOrders"
+    <!-- RecyclerView for Products -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="24dp"
+        android:padding="8dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="List of products available for purchase" />
+
+    <!-- Checkout and View Cart Buttons -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Orders"
-        android:background="@drawable/rounded_button"
-        android:textColor="@color/white"
-        android:layout_marginBottom="10dp"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
 
-    <Button
-        android:id="@+id/btnProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Profile Settings"
-        android:background="@drawable/rounded_button"
-        android:textColor="@color/white"
-        android:layout_marginBottom="10dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnViewCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Cart"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_gradient"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp"
+            android:elevation="4dp"
+            android:importantForAccessibility="yes"
+            android:contentDescription="View your cart with selected products" />
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:background="@drawable/rounded_button"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCheckout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Checkout"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_gradient"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:elevation="4dp"
+            android:importantForAccessibility="yes"
+            android:contentDescription="Proceed to checkout and complete the purchase" />
+    </LinearLayout>
 </LinearLayout>

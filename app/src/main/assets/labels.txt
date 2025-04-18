@@ -1,0 +1,10 @@
+Healthy
+Blight
+Rust
+Mosaic Virus
+Powdery Mildew
+Leaf Spot
+Downy Mildew
+Bacterial Wilt
+Anthracnose
+Septoria Leaf Spot

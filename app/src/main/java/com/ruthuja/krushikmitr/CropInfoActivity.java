@@ -1,154 +1,202 @@
 package com.ruthuja.krushikmitr;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import org.tensorflow.lite.Interpreter;
+import org.tensorflow.lite.support.image.TensorImage;
+import org.tensorflow.lite.support.image.ImageProcessor;
+import org.tensorflow.lite.support.image.ops.ResizeOp;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import java.io.InputStreamReader;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CropInfoActivity extends AppCompatActivity {
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int IMAGE_SIZE = 224; // Model input size
+    private static final int REQUEST_CAMERA_PERMISSION = 100;
 
+    private Button btnUploadImage, btnUploadGallery, btnDetectDisease;
     private ImageView ivCropPreview;
     private TextView tvDiseaseResult, tvSuggestion;
-    private Interpreter tflite;
-    private Button btnUploadImage, btnDetectDisease;
+    private ProgressBar progressBar;
     private Bitmap cropImage;
+    private Interpreter tflite;
+    private List<String> labels = new ArrayList<>();
+    private ExecutorService executorService;
+
+    private final ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Bundle extras = result.getData().getExtras();
+                    if (extras != null) {
+                        cropImage = (Bitmap) extras.get("data");
+                        ivCropPreview.setImageBitmap(cropImage);
+                    }
+                }
+            }
+    );
+
+    private final ActivityResultLauncher<Intent> galleryLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Uri selectedImage = result.getData().getData();
+                    try {
+                        cropImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                        ivCropPreview.setImageBitmap(cropImage);
+                    } catch (IOException e) {
+                        Log.e("ERROR", "Failed to load image", e);
+                    }
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_info);
 
+        initializeUI();
+        executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(this::loadModelFile);
+    }
+
+    private void initializeUI() {
+        btnUploadImage = findViewById(R.id.btn_upload_image);
+        btnUploadGallery = findViewById(R.id.btn_upload_gallery);
+        btnDetectDisease = findViewById(R.id.btn_detect_disease);
         ivCropPreview = findViewById(R.id.iv_crop_preview);
         tvDiseaseResult = findViewById(R.id.tv_disease_result);
         tvSuggestion = findViewById(R.id.tv_suggestion);
-        btnUploadImage = findViewById(R.id.btn_upload_image);
-        btnDetectDisease = findViewById(R.id.btn_detect_disease);
+        progressBar = findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.GONE);
 
-        // Load TensorFlow Lite Model
-        try {
-            tflite = new Interpreter(loadModelFile());
-        } catch (IOException e) {
-            e.printStackTrace();
+        btnUploadImage.setOnClickListener(v -> checkCameraPermission());
+        btnUploadGallery.setOnClickListener(v -> galleryLauncher.launch(new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)));
+        btnDetectDisease.setOnClickListener(v -> detectDisease());
+    }
+
+    private void checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+        } else {
+            cameraLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
+        }
+    }
+
+    private void detectDisease() {
+        if (cropImage == null || tflite == null || labels.isEmpty()) {
+            showToast("Please upload an image and ensure model is loaded!");
+            return;
         }
 
-        // Capture Image from Camera
-        btnUploadImage.setOnClickListener(v -> {
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
+        progressBar.setVisibility(View.VISIBLE);
+
+        executorService.execute(() -> {
+            TensorImage inputImage = preprocessImage(cropImage);
+            TensorBuffer outputBuffer = TensorBuffer.createFixedSize(new int[]{1, labels.size()}, tflite.getOutputTensor(0).dataType());
+            tflite.run(inputImage.getBuffer(), outputBuffer.getBuffer());
+
+            int maxIndex = getMaxIndex(outputBuffer.getFloatArray());
+            String detectedDisease = labels.get(maxIndex);
+            String recommendation = getRecommendation(detectedDisease);
+
+            runOnUiThread(() -> {
+                tvDiseaseResult.setText("Detected: " + detectedDisease);
+                tvSuggestion.setText("Recommendation: " + recommendation);
+                progressBar.setVisibility(View.GONE);
+            });
         });
-
-        // Detect Disease
-        btnDetectDisease.setOnClickListener(v -> {
-            if (cropImage != null) {
-                String disease = detectDisease(cropImage);
-                tvDiseaseResult.setText("Detected: " + disease);
-                tvDiseaseResult.setVisibility(View.VISIBLE);
-
-                // Fetch & Display Recommendations
-                String suggestion = getRecommendation(disease);
-                tvSuggestion.setText("Recommendation: " + suggestion);
-                tvSuggestion.setVisibility(View.VISIBLE);
-            }
-        });
     }
 
-    // Process Captured Image
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK && data != null) {
-            Bundle extras = data.getExtras();
-            cropImage = (Bitmap) extras.get("data");
-            ivCropPreview.setImageBitmap(cropImage);
-        }
-    }
-
-    // Load the ML Model
-    private MappedByteBuffer loadModelFile() throws IOException {
-        AssetFileDescriptor fileDescriptor = getAssets().openFd("plant_disease_model.tflite");
-        FileInputStream inputStream = new FileInputStream(fileDescriptor.getFileDescriptor());
-        FileChannel fileChannel = inputStream.getChannel();
-        long startOffset = fileDescriptor.getStartOffset();
-        long declaredLength = fileDescriptor.getDeclaredLength();
-        return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
-    }
-
-    // Run Image through ML Model
-    private String detectDisease(Bitmap image) {
-        Bitmap resizedImage = preprocessImage(image);
-        ByteBuffer inputBuffer = convertBitmapToByteBuffer(resizedImage);
-        float[][] output = new float[1][1];
-        tflite.run(inputBuffer, output);
-        return classifyDisease(output[0][0]);
-    }
-
-    // Preprocess Image to Match Model Input Requirements
-    private Bitmap preprocessImage(Bitmap bitmap) {
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, IMAGE_SIZE, IMAGE_SIZE, true);
-        Bitmap newBitmap = Bitmap.createBitmap(IMAGE_SIZE, IMAGE_SIZE, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(newBitmap);
-        Paint paint = new Paint();
-        paint.setColor(Color.WHITE);
-        canvas.drawBitmap(scaledBitmap, new Matrix(), paint);
-        return newBitmap;
-    }
-
-    // Convert Bitmap to ByteBuffer
-    private ByteBuffer convertBitmapToByteBuffer(Bitmap bitmap) {
-        ByteBuffer buffer = ByteBuffer.allocateDirect(IMAGE_SIZE * IMAGE_SIZE * 3 * 4);
-        buffer.order(ByteOrder.nativeOrder());
-        int[] pixels = new int[IMAGE_SIZE * IMAGE_SIZE];
-        bitmap.getPixels(pixels, 0, IMAGE_SIZE, 0, 0, IMAGE_SIZE, IMAGE_SIZE);
-        for (int pixel : pixels) {
-            buffer.putFloat(((pixel >> 16) & 0xFF) / 255.0f); // Red
-            buffer.putFloat(((pixel >> 8) & 0xFF) / 255.0f);  // Green
-            buffer.putFloat((pixel & 0xFF) / 255.0f);         // Blue
-        }
-        return buffer;
-    }
-
-    // Classify Disease Based on Model Output
-    private String classifyDisease(float index) {
-        String[] diseases = {"Healthy", "Leaf Spot", "Blight", "Rust"};
-        int classIndex = (int) Math.min(Math.max(index, 0), diseases.length - 1); // Ensure valid index
-        return diseases[classIndex];
-    }
-
-    // Get Recommendation Based on Disease
     private String getRecommendation(String disease) {
-        Map<String, String> recommendations = new HashMap<>();
-        recommendations.put("Healthy", "No issues detected. Maintain regular watering and fertilization.");
-        recommendations.put("Leaf Spot", "Use copper-based fungicide and remove infected leaves.");
-        recommendations.put("Blight", "Apply organic fungicides and avoid overhead watering.");
-        recommendations.put("Rust", "Use sulfur-based fungicide and ensure good air circulation.");
-        return recommendations.getOrDefault(disease, "No recommendations available.");
+        switch (disease) {
+            case "Blight":
+                return "Use copper-based fungicides and remove infected leaves.";
+            case "Rust":
+                return "Apply sulfur or neem oil sprays.";
+            case "Mosaic Virus":
+                return "Remove affected plants and control aphids.";
+            default:
+                return "Keep monitoring your plant.";
+        }
+    }
+
+    private int getMaxIndex(float[] outputs) {
+        int maxIndex = 0;
+        float maxConfidence = outputs[0];
+        for (int i = 1; i < outputs.length; i++) {
+            if (outputs[i] > maxConfidence) {
+                maxConfidence = outputs[i];
+                maxIndex = i;
+            }
+        }
+        return maxIndex;
+    }
+
+    private TensorImage preprocessImage(Bitmap bitmap) {
+        ImageProcessor imageProcessor = new ImageProcessor.Builder()
+                .add(new ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR))
+                .build();
+
+        TensorImage tensorImage = new TensorImage(tflite.getInputTensor(0).dataType());
+        tensorImage.load(bitmap);
+        return imageProcessor.process(tensorImage);
+    }
+
+    private void loadModelFile() {
+        try {
+            FileInputStream fis = new FileInputStream(getFilesDir() + "/plant_disease_model_with_metadata.tflite");
+            FileChannel fileChannel = fis.getChannel();
+            MappedByteBuffer modelBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
+            tflite = new Interpreter(modelBuffer);
+            labels = loadLabels("labels.txt");
+        } catch (IOException e) {
+            Log.e("ERROR", "Failed to load model", e);
+        }
+    }
+
+    private List<String> loadLabels(String filePath) throws IOException {
+        List<String> labels = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(filePath)))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                labels.add(line);
+            }
+        }
+        return labels;
+    }
+
+    private void showToast(String message) {
+        runOnUiThread(() -> Toast.makeText(this, message, Toast.LENGTH_SHORT).show());
     }
 }

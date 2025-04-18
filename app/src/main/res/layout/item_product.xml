@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/rounded_border"
+    android:elevation="4dp"
+    android:importantForAccessibility="yes"
+    android:contentDescription="Product card with image, name, price and description">
+
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/tomatoes"
+        android:contentDescription="Image of the product Tomato"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center" />
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tomato"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2C3E50"
+        android:layout_marginTop="8dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:contentDescription="Product name: Tomato" />
+
+    <!-- Product Price -->
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="₹10.00"
+        android:textSize="16sp"
+        android:textColor="#FF4081"
+        android:layout_marginTop="4dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:contentDescription="Price: 10 rupees" />
+
+    <!-- Product Description -->
+    <TextView
+        android:id="@+id/product_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fresh organic tomatoes"
+        android:textSize="14sp"
+        android:textColor="#7F8C8D"
+        android:layout_marginTop="4dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:contentDescription="Description: Fresh organic tomatoes" />
+
+    <!-- Buttons Side-by-Side -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <!-- Negotiate Price Button -->
+        <Button
+            android:id="@+id/btnNegotiatePrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Negotiate"
+            android:textColor="#FFFFFF"
+            android:background="#1976D2"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:elevation="2dp"
+            android:contentDescription="Button to negotiate the price with the seller" />
+
+        <!-- Add to Cart Button -->
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add to Cart"
+            android:textColor="#FFFFFF"
+            android:background="#2E7D32"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:elevation="2dp"
+            android:contentDescription="Button to add the product to the cart" />
+
+    </LinearLayout>
+
+</LinearLayout>

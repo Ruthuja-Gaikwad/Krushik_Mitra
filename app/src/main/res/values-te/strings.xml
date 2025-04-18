@@ -1,7 +1,71 @@
 <resources>
-    <string name="app_name">కృషిక్ మిత్ర</string>
-    <string name="select_language">భాషను ఎంచుకోండి</string>
-    <string name="btn_continue_text">కొనసాగించండి</string>
-    <string name="welcome_text">కృషిక్ మిత్రకు స్వాగతం</string>
+    <string name="farmer_login">వ్యవసాయిగా లాగిన్ అవ్వండి</string>
     <string name="login">లాగిన్ చేయండి</string>
+    <string name="enter_username">వాడుకరి పేరు నమోదు చేయండి</string>
+    <string name="enter_password">పాస్వర్డ్ నమోదు చేయండి</string>
+    <string name="consumer_login">గ్రాహక లాగిన్</string>
+    <string name="dashboard_title">వ్యవసాయ డాష్‌బోర్డ్</string>
+    <string name="crop_info">పంట సమాచారం</string>
+    <string name="weather">మौసమే సమాచారం</string>
+    <string name="crop_info_desc">తాజా పంట సమాచారం పొందండి</string>
+    <string name="weather_desc">మौసమే భవిష్యవాణిని చూడండి</string>
+    <string name="enter_name">మీ పేరు నమోదు చేయండి</string>
+    <string name="enter_mobile">మీ మొబైల్ నంబర్ నమోదు చేయండి</string>
+    <string name="enter_address">మీ చిరునామా నమోదు చేయండి</string>
+    <string name="enter_location">మీ స్థలాన్ని నమోదు చేయండి</string>
+    <string name="enter_land_area">భూమి విస్తీర్ణం నమోదు చేయండి (ఎకరాలలో)</string>
+    <string name="enter_soil_type">మట్టి రకం నమోదు చేయండి</string>
+    <string name="enter_npk_values">NPK విలువలు నమోదు చేయండి</string>
+    <string name="enter_previous_crop">గత పంట నమోదు చేయండి</string>
+    <string name="btn_crop_info">పంట సమాచారం</string>
+    <string name="btn_finance_info">ఆర్థిక సమాచారం</string>
+    <string name="btn_market_info">బజార్ సమాచారం</string>
+    <string name="btn_weather_info">మౌసమ సమాచారం</string>
+    <string name="select_language">భాష ఎంచుకోండి</string>
+    <string name="btn_continue_text">కొనసాగించండి</string>
+    <string name="welcome_text">కృషిక్ మిత్రలో స్వాగతం</string>
+    <string name="welcome_message">కృషిక్ మిత్రలో స్వాగతం, %1$s!</string>
+    <string name="suggested_crop">ఊహించబడిన పంట</string>
+    <string name="upload_image">చిత్రాన్ని అప్లోడ్ చేయండి</string>
+    <string name="weather_info">మौసమే సమాచారం</string>
+    <string name="humidity">ఆర్ద్రత:</string>
+    <string name="wind_speed">గాలి వేగం:</string>
+    <string name="pressure">మానవశక్తి:</string>
+    <string name="fetching_weather">మौసమాన్ని పొందుతున్నాము...</string>
+    <string name="enter_message">దయచేసి సందేశాన్ని నమోదు చేయండి</string>
+    <string name="error_chatbot_response">చాట్‌బోట్ నుండి స్పందన పొందడంలో విఫలమైంది</string>
+    <string name="api_call_failed">API కాల్ విఫలమైంది</string>
+    <string name="pm_kisan">PM కిసాన్ - ₹6,000 వార్షికం</string>
+    <string name="pm_fby">PMFBY - పంట బీమా</string>
+    <string name="kcc">కిసాన్ క్రెడిట్ కార్డ్ - తక్కువ వడ్డీ రేట్లు</string>
+    <string name="enam">eNAM - రైతులకు ఆన్‌లైన్ మార్కెట్</string>
+    <string name="rkvy">RKVY - వ్యవసాయ అభివృద్ధికి నిధి</string>
+    <string name="app_name">కృషిక్ మిత్ర</string>
+    <string name="title_farming_videos">వ్యవసాయ వీడియోలు</string>
+    <string name="farming_video_list">వ్యవసాయ వీడియోల జాబితా</string>
+    <string-array name="languages">
+        <item>ఇంగ్లీష్</item>
+        <item>హిందీ</item>
+        <item>మరాఠీ</item>
+        <item>తెలుగు</item>
+    </string-array>
+    <string-array name="location_options">
+        <item>గ్రామం 1</item>
+        <item>గ్రామం 2</item>
+        <item>శివారు 1</item>
+        <item>శివారు 2</item>
+    </string-array>
+    <string-array name="soil_types">
+        <item>నల్ల మట్టి</item>
+        <item>పెరిగిన మట్టి</item>
+        <item>రేణు మట్టి</item>
+        <item>పగడాల మట్టి</item>
+    </string-array>
+    <string name="cart_items_list">మీ కార్ట్‌లోని వస్తువులు</string>
+    <string-array name="previous_crops">
+        <item>గోధుమ</item>
+        <item>పంట</item>
+        <item>మొక్క</item>
+        <item>పత్తి</item>
+    </string-array>
 </resources>
