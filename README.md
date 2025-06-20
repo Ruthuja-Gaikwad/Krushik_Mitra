@@ -1,74 +1,35 @@
-# Project Title
+# Krushik Mitra - Android App for Farmers
 
-A brief and concise description of your project.
+**Krushik Mitra** is an Android application designed to assist farmers by providing useful features such as crop information, disease detection, fertilizer recommendations, and a marketplace for agricultural products. The app aims to empower farmers with timely and accurate information to improve their productivity and connect directly with consumers.
 
-## Description
-
-Provide a more detailed explanation of your project. What problem does it solve? What is its purpose?
+---
 
 ## Features
 
-List the key features of your project. Use bullet points for clarity.
+- **Crop Information:** Detailed data on various crops including cultivation tips, season, and care.
+- **Disease Detection:** Upload images of crops to detect diseases using integrated machine learning models.
+- **Fertilizer Recommendations:** Get suggestions on fertilizers based on crop type and detected issues.
+- **Marketplace:** Farmers can list products for sale and customers can browse and purchase directly.
+- **User Authentication:** Secure login and registration functionality.
+- **Profile Management:** Users can update their profile details.
+- **Order Management:** Customers can place orders and view their order history.
 
-* Feature 1
-* Feature 2
-* Feature 3
+---
 
-## Technologies Used
+## Technology Stack
 
-List the technologies, languages, frameworks, and libraries used in your project.
+- **Android Studio** - Development IDE
+- **Java** - Programming language used for app development
+- **Firebase** - For user authentication, real-time database, and storage
+- **TensorFlow Lite** - On-device machine learning for crop disease detection
+- **RecyclerView** - For efficient list display
+- **Glide** - For image loading and caching
 
-* Technology A
-* Technology B
-* Technology C
+---
 
 ## Installation
 
-Explain how to install and set up your project.
+1. Clone the repository:
 
-1.  **Prerequisites:** List any software or dependencies that need to be installed before setting up the project.
-
-    * Prerequisite 1
-    * Prerequisite 2
-
-2.  **Steps:** Provide step-by-step instructions for cloning the repository and setting up the project.
-```
-bash
-    git clone <repository_url>
-    cd <project_directory>
-    # Add any other necessary setup commands (e.g., installing dependencies)
-    
-```
-## Usage
-
-Provide examples of how to use your project. Include code snippets if applicable.
-```
-python
-# Example usage
-print("Hello, World!")
-```
-## Contributing
-
-Explain how others can contribute to your project. Include guidelines for submitting bug reports, feature requests, and pull requests.
-
-1.  Fork the repository.
-2.  Create a new branch.
-3.  Make your changes.
-4.  Commit your changes.
-5.  Push to your fork.
-6.  Create a pull request.
-
-Please ensure your code follows the project's coding style and includes relevant tests.
-
-## License
-
-Specify the license under which your project is released. Include a link to the license file.
-
-This project is licensed under the [License Name](LICENSE) - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-Provide ways for users and potential contributors to contact you.
-
-* Email: ruthujagaikwad731@gmail.com
-* GitHub: [Your GitHub Profile](https://github.com/Ruthuja-Gaikwad/Krushik_Mitra)
+```bash
+git clone https://github.com/Ruthuja-Gaikwad/Krushik_Mitra.git
